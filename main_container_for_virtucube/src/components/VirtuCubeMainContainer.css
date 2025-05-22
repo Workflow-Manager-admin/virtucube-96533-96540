@@ -7,6 +7,7 @@
   padding: 2rem;
   max-width: 800px;
   margin: 0 auto;
+  padding-top: 100px; /* Add padding to account for navbar */
 }
 
 .virtucube-header {
@@ -33,6 +34,22 @@
   margin-bottom: 2rem;
 }
 
+/* New canvas wrapper styles */
+.virtucube-canvas-wrapper {
+  width: 350px;
+  height: 350px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(232, 122, 65, 0.3);
+  background-color: rgba(26, 26, 26, 0.8);
+  transition: all 0.3s ease;
+}
+
+.virtucube-canvas-wrapper:hover {
+  box-shadow: 0 0 30px rgba(232, 122, 65, 0.5);
+}
+
+/* Old placeholder styles (kept for reference) */
 .virtucube-cube-placeholder {
   width: 300px;
   height: 300px;
@@ -65,4 +82,5 @@
   width: 100%;
   text-align: center;
   color: var(--text-secondary);
+  margin-top: 1rem;
 }
