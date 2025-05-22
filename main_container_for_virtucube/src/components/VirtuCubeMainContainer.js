@@ -1,11 +1,25 @@
 // PUBLIC_INTERFACE
 import React from 'react';
+import { Canvas } from '@react-three/fiber';
+import { OrbitControls } from '@react-three/drei';
 import './VirtuCubeMainContainer.css';
 
 /**
+ * A simple cube component that serves as a placeholder for the Rubik's cube
+ */
+const SimpleCube = () => {
+  return (
+    <mesh>
+      <boxGeometry args={[2, 2, 2]} />
+      <meshStandardMaterial color="orange" />
+    </mesh>
+  );
+};
+
+/**
  * VirtuCubeMainContainer - The main container component for VirtuCube
- * This component provides the container for displaying an interactive 3D Rubik's Cube.
- * Currently contains only a placeholder for the future 3D implementation.
+ * This component provides the container for displaying an interactive 3D Rubik's Cube
+ * using React Three Fiber.
  */
 const VirtuCubeMainContainer = () => {
   return (
@@ -16,16 +30,35 @@ const VirtuCubeMainContainer = () => {
       </div>
       
       <div className="virtucube-cube-container">
-        {/* This is a placeholder for the 3D cube that will be implemented later */}
-        <div className="virtucube-cube-placeholder">
-          <div className="placeholder-text">
-            3D Cube will appear here
-          </div>
+        {/* 3D Canvas for the Rubik's cube */}
+        <div className="virtucube-canvas-wrapper">
+          <Canvas 
+            camera={{ position: [3, 3, 5], fov: 50 }}
+            style={{ 
+              width: '100%', 
+              height: '100%'
+            }}
+          >
+            <ambientLight intensity={0.5} />
+            <spotLight 
+              position={[10, 10, 10]} 
+              angle={0.15} 
+              penumbra={1} 
+              intensity={1} 
+              castShadow 
+            />
+            <pointLight position={[-10, -10, -10]} intensity={0.5} />
+            
+            <SimpleCube />
+            
+            {/* OrbitControls allows the user to rotate the view */}
+            <OrbitControls />
+          </Canvas>
         </div>
       </div>
       
       <div className="virtucube-controls-placeholder">
-        <p>Controls will be added here</p>
+        <p>Use your mouse to rotate the cube. More controls coming soon!</p>
       </div>
     </div>
   );
