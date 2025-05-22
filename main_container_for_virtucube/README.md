@@ -11,7 +11,7 @@ This project provides a minimal React template with a clean, modern UI and minim
 
 ## Getting Started
 
-In the project directory, you can run:
+In the projecailt directory, you can run:
 
 ### `npm start`
 
